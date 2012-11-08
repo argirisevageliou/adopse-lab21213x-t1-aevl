@@ -23,7 +23,6 @@ Partial Class Employees
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Employees))
         Dim EmployeeIDLabel As System.Windows.Forms.Label
         Dim LastNameLabel As System.Windows.Forms.Label
         Dim FirstNameLabel As System.Windows.Forms.Label
@@ -41,22 +40,23 @@ Partial Class Employees
         Dim PhotoLabel As System.Windows.Forms.Label
         Dim NotesLabel As System.Windows.Forms.Label
         Dim ReportsToLabel As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Employees))
         Me.NorthwindDataSet = New DataForms.NorthwindDataSet
         Me.EmployeesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.EmployeesTableAdapter = New DataForms.NorthwindDataSetTableAdapters.EmployeesTableAdapter
         Me.TableAdapterManager = New DataForms.NorthwindDataSetTableAdapters.TableAdapterManager
         Me.EmployeesBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
+        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton
+        Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel
+        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton
         Me.BindingNavigatorMovePreviousItem = New System.Windows.Forms.ToolStripButton
         Me.BindingNavigatorSeparator = New System.Windows.Forms.ToolStripSeparator
         Me.BindingNavigatorPositionItem = New System.Windows.Forms.ToolStripTextBox
-        Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel
         Me.BindingNavigatorSeparator1 = New System.Windows.Forms.ToolStripSeparator
         Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator
-        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton
-        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton
         Me.EmployeesBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton
         Me.EmployeeIDLabel1 = New System.Windows.Forms.Label
         Me.LastNameTextBox = New System.Windows.Forms.TextBox
@@ -75,6 +75,23 @@ Partial Class Employees
         Me.PhotoTextBox = New System.Windows.Forms.TextBox
         Me.NotesTextBox = New System.Windows.Forms.TextBox
         Me.ReportsToTextBox = New System.Windows.Forms.TextBox
+        Me.OrdersBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.OrdersTableAdapter = New DataForms.NorthwindDataSetTableAdapters.OrdersTableAdapter
+        Me.OrdersDataGridView = New System.Windows.Forms.DataGridView
+        Me.OrderIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.CustomerIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.EmployeeIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.OrderDateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.RequiredDateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ShippedDateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ShipViaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.FreightDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ShipNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ShipAddressDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ShipCityDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ShipRegionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ShipPostalCodeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ShipCountryDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
         EmployeeIDLabel = New System.Windows.Forms.Label
         LastNameLabel = New System.Windows.Forms.Label
         FirstNameLabel = New System.Windows.Forms.Label
@@ -96,7 +113,162 @@ Partial Class Employees
         CType(Me.EmployeesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmployeesBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.EmployeesBindingNavigator.SuspendLayout()
+        CType(Me.OrdersBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.OrdersDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'EmployeeIDLabel
+        '
+        EmployeeIDLabel.AutoSize = True
+        EmployeeIDLabel.Location = New System.Drawing.Point(12, 37)
+        EmployeeIDLabel.Name = "EmployeeIDLabel"
+        EmployeeIDLabel.Size = New System.Drawing.Size(70, 13)
+        EmployeeIDLabel.TabIndex = 1
+        EmployeeIDLabel.Text = "Employee ID:"
+        '
+        'LastNameLabel
+        '
+        LastNameLabel.AutoSize = True
+        LastNameLabel.Location = New System.Drawing.Point(12, 66)
+        LastNameLabel.Name = "LastNameLabel"
+        LastNameLabel.Size = New System.Drawing.Size(61, 13)
+        LastNameLabel.TabIndex = 3
+        LastNameLabel.Text = "Last Name:"
+        '
+        'FirstNameLabel
+        '
+        FirstNameLabel.AutoSize = True
+        FirstNameLabel.Location = New System.Drawing.Point(12, 92)
+        FirstNameLabel.Name = "FirstNameLabel"
+        FirstNameLabel.Size = New System.Drawing.Size(60, 13)
+        FirstNameLabel.TabIndex = 5
+        FirstNameLabel.Text = "First Name:"
+        '
+        'TitleLabel
+        '
+        TitleLabel.AutoSize = True
+        TitleLabel.Location = New System.Drawing.Point(12, 118)
+        TitleLabel.Name = "TitleLabel"
+        TitleLabel.Size = New System.Drawing.Size(30, 13)
+        TitleLabel.TabIndex = 7
+        TitleLabel.Text = "Title:"
+        '
+        'TitleOfCourtesyLabel
+        '
+        TitleOfCourtesyLabel.AutoSize = True
+        TitleOfCourtesyLabel.Location = New System.Drawing.Point(12, 144)
+        TitleOfCourtesyLabel.Name = "TitleOfCourtesyLabel"
+        TitleOfCourtesyLabel.Size = New System.Drawing.Size(88, 13)
+        TitleOfCourtesyLabel.TabIndex = 9
+        TitleOfCourtesyLabel.Text = "Title Of Courtesy:"
+        '
+        'BirthDateLabel
+        '
+        BirthDateLabel.AutoSize = True
+        BirthDateLabel.Location = New System.Drawing.Point(12, 171)
+        BirthDateLabel.Name = "BirthDateLabel"
+        BirthDateLabel.Size = New System.Drawing.Size(57, 13)
+        BirthDateLabel.TabIndex = 11
+        BirthDateLabel.Text = "Birth Date:"
+        '
+        'HireDateLabel
+        '
+        HireDateLabel.AutoSize = True
+        HireDateLabel.Location = New System.Drawing.Point(12, 197)
+        HireDateLabel.Name = "HireDateLabel"
+        HireDateLabel.Size = New System.Drawing.Size(55, 13)
+        HireDateLabel.TabIndex = 13
+        HireDateLabel.Text = "Hire Date:"
+        '
+        'AddressLabel
+        '
+        AddressLabel.AutoSize = True
+        AddressLabel.Location = New System.Drawing.Point(12, 222)
+        AddressLabel.Name = "AddressLabel"
+        AddressLabel.Size = New System.Drawing.Size(48, 13)
+        AddressLabel.TabIndex = 15
+        AddressLabel.Text = "Address:"
+        '
+        'CityLabel
+        '
+        CityLabel.AutoSize = True
+        CityLabel.Location = New System.Drawing.Point(12, 248)
+        CityLabel.Name = "CityLabel"
+        CityLabel.Size = New System.Drawing.Size(27, 13)
+        CityLabel.TabIndex = 17
+        CityLabel.Text = "City:"
+        '
+        'RegionLabel
+        '
+        RegionLabel.AutoSize = True
+        RegionLabel.Location = New System.Drawing.Point(12, 274)
+        RegionLabel.Name = "RegionLabel"
+        RegionLabel.Size = New System.Drawing.Size(44, 13)
+        RegionLabel.TabIndex = 19
+        RegionLabel.Text = "Region:"
+        '
+        'PostalCodeLabel
+        '
+        PostalCodeLabel.AutoSize = True
+        PostalCodeLabel.Location = New System.Drawing.Point(12, 300)
+        PostalCodeLabel.Name = "PostalCodeLabel"
+        PostalCodeLabel.Size = New System.Drawing.Size(67, 13)
+        PostalCodeLabel.TabIndex = 21
+        PostalCodeLabel.Text = "Postal Code:"
+        '
+        'CountryLabel
+        '
+        CountryLabel.AutoSize = True
+        CountryLabel.Location = New System.Drawing.Point(12, 326)
+        CountryLabel.Name = "CountryLabel"
+        CountryLabel.Size = New System.Drawing.Size(46, 13)
+        CountryLabel.TabIndex = 23
+        CountryLabel.Text = "Country:"
+        '
+        'HomePhoneLabel
+        '
+        HomePhoneLabel.AutoSize = True
+        HomePhoneLabel.Location = New System.Drawing.Point(12, 352)
+        HomePhoneLabel.Name = "HomePhoneLabel"
+        HomePhoneLabel.Size = New System.Drawing.Size(72, 13)
+        HomePhoneLabel.TabIndex = 25
+        HomePhoneLabel.Text = "Home Phone:"
+        '
+        'ExtensionLabel
+        '
+        ExtensionLabel.AutoSize = True
+        ExtensionLabel.Location = New System.Drawing.Point(12, 378)
+        ExtensionLabel.Name = "ExtensionLabel"
+        ExtensionLabel.Size = New System.Drawing.Size(56, 13)
+        ExtensionLabel.TabIndex = 27
+        ExtensionLabel.Text = "Extension:"
+        '
+        'PhotoLabel
+        '
+        PhotoLabel.AutoSize = True
+        PhotoLabel.Location = New System.Drawing.Point(12, 404)
+        PhotoLabel.Name = "PhotoLabel"
+        PhotoLabel.Size = New System.Drawing.Size(38, 13)
+        PhotoLabel.TabIndex = 29
+        PhotoLabel.Text = "Photo:"
+        '
+        'NotesLabel
+        '
+        NotesLabel.AutoSize = True
+        NotesLabel.Location = New System.Drawing.Point(12, 430)
+        NotesLabel.Name = "NotesLabel"
+        NotesLabel.Size = New System.Drawing.Size(38, 13)
+        NotesLabel.TabIndex = 31
+        NotesLabel.Text = "Notes:"
+        '
+        'ReportsToLabel
+        '
+        ReportsToLabel.AutoSize = True
+        ReportsToLabel.Location = New System.Drawing.Point(12, 456)
+        ReportsToLabel.Name = "ReportsToLabel"
+        ReportsToLabel.Size = New System.Drawing.Size(63, 13)
+        ReportsToLabel.TabIndex = 33
+        ReportsToLabel.Text = "Reports To:"
         '
         'NorthwindDataSet
         '
@@ -119,7 +291,7 @@ Partial Class Employees
         Me.TableAdapterManager.CustomersTableAdapter = Nothing
         Me.TableAdapterManager.EmployeesTableAdapter = Me.EmployeesTableAdapter
         Me.TableAdapterManager.Order_DetailsTableAdapter = Nothing
-        Me.TableAdapterManager.OrdersTableAdapter = Nothing
+        Me.TableAdapterManager.OrdersTableAdapter = Me.OrdersTableAdapter
         Me.TableAdapterManager.ProductsTableAdapter = Nothing
         Me.TableAdapterManager.ShippersTableAdapter = Nothing
         Me.TableAdapterManager.SuppliersTableAdapter = Nothing
@@ -139,9 +311,34 @@ Partial Class Employees
         Me.EmployeesBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.EmployeesBindingNavigator.Name = "EmployeesBindingNavigator"
         Me.EmployeesBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.EmployeesBindingNavigator.Size = New System.Drawing.Size(349, 25)
+        Me.EmployeesBindingNavigator.Size = New System.Drawing.Size(728, 25)
         Me.EmployeesBindingNavigator.TabIndex = 0
         Me.EmployeesBindingNavigator.Text = "BindingNavigator1"
+        '
+        'BindingNavigatorAddNewItem
+        '
+        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
+        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorAddNewItem.Text = "Add new"
+        '
+        'BindingNavigatorCountItem
+        '
+        Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(35, 22)
+        Me.BindingNavigatorCountItem.Text = "of {0}"
+        Me.BindingNavigatorCountItem.ToolTipText = "Total number of items"
+        '
+        'BindingNavigatorDeleteItem
+        '
+        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
+        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorDeleteItem.Text = "Delete"
         '
         'BindingNavigatorMoveFirstItem
         '
@@ -175,17 +372,10 @@ Partial Class Employees
         Me.BindingNavigatorPositionItem.Text = "0"
         Me.BindingNavigatorPositionItem.ToolTipText = "Current position"
         '
-        'BindingNavigatorCountItem
-        '
-        Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(35, 15)
-        Me.BindingNavigatorCountItem.Text = "of {0}"
-        Me.BindingNavigatorCountItem.ToolTipText = "Total number of items"
-        '
         'BindingNavigatorSeparator1
         '
-        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 6)
+        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator1"
+        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 25)
         '
         'BindingNavigatorMoveNextItem
         '
@@ -193,7 +383,7 @@ Partial Class Employees
         Me.BindingNavigatorMoveNextItem.Image = CType(resources.GetObject("BindingNavigatorMoveNextItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveNextItem.Name = "BindingNavigatorMoveNextItem"
         Me.BindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 20)
+        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorMoveNextItem.Text = "Move next"
         '
         'BindingNavigatorMoveLastItem
@@ -202,48 +392,21 @@ Partial Class Employees
         Me.BindingNavigatorMoveLastItem.Image = CType(resources.GetObject("BindingNavigatorMoveLastItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveLastItem.Name = "BindingNavigatorMoveLastItem"
         Me.BindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 20)
+        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorMoveLastItem.Text = "Move last"
         '
         'BindingNavigatorSeparator2
         '
-        Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 6)
-        '
-        'BindingNavigatorAddNewItem
-        '
-        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
-        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorAddNewItem.Text = "Add new"
-        '
-        'BindingNavigatorDeleteItem
-        '
-        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
-        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 20)
-        Me.BindingNavigatorDeleteItem.Text = "Delete"
+        Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
+        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
         '
         'EmployeesBindingNavigatorSaveItem
         '
         Me.EmployeesBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.EmployeesBindingNavigatorSaveItem.Image = CType(resources.GetObject("EmployeesBindingNavigatorSaveItem.Image"), System.Drawing.Image)
         Me.EmployeesBindingNavigatorSaveItem.Name = "EmployeesBindingNavigatorSaveItem"
-        Me.EmployeesBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 23)
+        Me.EmployeesBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 22)
         Me.EmployeesBindingNavigatorSaveItem.Text = "Save Data"
-        '
-        'EmployeeIDLabel
-        '
-        EmployeeIDLabel.AutoSize = True
-        EmployeeIDLabel.Location = New System.Drawing.Point(12, 37)
-        EmployeeIDLabel.Name = "EmployeeIDLabel"
-        EmployeeIDLabel.Size = New System.Drawing.Size(70, 13)
-        EmployeeIDLabel.TabIndex = 1
-        EmployeeIDLabel.Text = "Employee ID:"
         '
         'EmployeeIDLabel1
         '
@@ -254,15 +417,6 @@ Partial Class Employees
         Me.EmployeeIDLabel1.TabIndex = 2
         Me.EmployeeIDLabel1.Text = "Label1"
         '
-        'LastNameLabel
-        '
-        LastNameLabel.AutoSize = True
-        LastNameLabel.Location = New System.Drawing.Point(12, 66)
-        LastNameLabel.Name = "LastNameLabel"
-        LastNameLabel.Size = New System.Drawing.Size(61, 13)
-        LastNameLabel.TabIndex = 3
-        LastNameLabel.Text = "Last Name:"
-        '
         'LastNameTextBox
         '
         Me.LastNameTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "LastName", True))
@@ -270,15 +424,6 @@ Partial Class Employees
         Me.LastNameTextBox.Name = "LastNameTextBox"
         Me.LastNameTextBox.Size = New System.Drawing.Size(200, 20)
         Me.LastNameTextBox.TabIndex = 4
-        '
-        'FirstNameLabel
-        '
-        FirstNameLabel.AutoSize = True
-        FirstNameLabel.Location = New System.Drawing.Point(12, 92)
-        FirstNameLabel.Name = "FirstNameLabel"
-        FirstNameLabel.Size = New System.Drawing.Size(60, 13)
-        FirstNameLabel.TabIndex = 5
-        FirstNameLabel.Text = "First Name:"
         '
         'FirstNameTextBox
         '
@@ -288,15 +433,6 @@ Partial Class Employees
         Me.FirstNameTextBox.Size = New System.Drawing.Size(200, 20)
         Me.FirstNameTextBox.TabIndex = 6
         '
-        'TitleLabel
-        '
-        TitleLabel.AutoSize = True
-        TitleLabel.Location = New System.Drawing.Point(12, 118)
-        TitleLabel.Name = "TitleLabel"
-        TitleLabel.Size = New System.Drawing.Size(30, 13)
-        TitleLabel.TabIndex = 7
-        TitleLabel.Text = "Title:"
-        '
         'TitleTextBox
         '
         Me.TitleTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Title", True))
@@ -304,15 +440,6 @@ Partial Class Employees
         Me.TitleTextBox.Name = "TitleTextBox"
         Me.TitleTextBox.Size = New System.Drawing.Size(200, 20)
         Me.TitleTextBox.TabIndex = 8
-        '
-        'TitleOfCourtesyLabel
-        '
-        TitleOfCourtesyLabel.AutoSize = True
-        TitleOfCourtesyLabel.Location = New System.Drawing.Point(12, 144)
-        TitleOfCourtesyLabel.Name = "TitleOfCourtesyLabel"
-        TitleOfCourtesyLabel.Size = New System.Drawing.Size(88, 13)
-        TitleOfCourtesyLabel.TabIndex = 9
-        TitleOfCourtesyLabel.Text = "Title Of Courtesy:"
         '
         'TitleOfCourtesyTextBox
         '
@@ -322,15 +449,6 @@ Partial Class Employees
         Me.TitleOfCourtesyTextBox.Size = New System.Drawing.Size(200, 20)
         Me.TitleOfCourtesyTextBox.TabIndex = 10
         '
-        'BirthDateLabel
-        '
-        BirthDateLabel.AutoSize = True
-        BirthDateLabel.Location = New System.Drawing.Point(12, 171)
-        BirthDateLabel.Name = "BirthDateLabel"
-        BirthDateLabel.Size = New System.Drawing.Size(57, 13)
-        BirthDateLabel.TabIndex = 11
-        BirthDateLabel.Text = "Birth Date:"
-        '
         'BirthDateDateTimePicker
         '
         Me.BirthDateDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.EmployeesBindingSource, "BirthDate", True))
@@ -338,15 +456,6 @@ Partial Class Employees
         Me.BirthDateDateTimePicker.Name = "BirthDateDateTimePicker"
         Me.BirthDateDateTimePicker.Size = New System.Drawing.Size(200, 20)
         Me.BirthDateDateTimePicker.TabIndex = 12
-        '
-        'HireDateLabel
-        '
-        HireDateLabel.AutoSize = True
-        HireDateLabel.Location = New System.Drawing.Point(12, 197)
-        HireDateLabel.Name = "HireDateLabel"
-        HireDateLabel.Size = New System.Drawing.Size(55, 13)
-        HireDateLabel.TabIndex = 13
-        HireDateLabel.Text = "Hire Date:"
         '
         'HireDateDateTimePicker
         '
@@ -356,15 +465,6 @@ Partial Class Employees
         Me.HireDateDateTimePicker.Size = New System.Drawing.Size(200, 20)
         Me.HireDateDateTimePicker.TabIndex = 14
         '
-        'AddressLabel
-        '
-        AddressLabel.AutoSize = True
-        AddressLabel.Location = New System.Drawing.Point(12, 222)
-        AddressLabel.Name = "AddressLabel"
-        AddressLabel.Size = New System.Drawing.Size(48, 13)
-        AddressLabel.TabIndex = 15
-        AddressLabel.Text = "Address:"
-        '
         'AddressTextBox
         '
         Me.AddressTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Address", True))
@@ -372,15 +472,6 @@ Partial Class Employees
         Me.AddressTextBox.Name = "AddressTextBox"
         Me.AddressTextBox.Size = New System.Drawing.Size(200, 20)
         Me.AddressTextBox.TabIndex = 16
-        '
-        'CityLabel
-        '
-        CityLabel.AutoSize = True
-        CityLabel.Location = New System.Drawing.Point(12, 248)
-        CityLabel.Name = "CityLabel"
-        CityLabel.Size = New System.Drawing.Size(27, 13)
-        CityLabel.TabIndex = 17
-        CityLabel.Text = "City:"
         '
         'CityTextBox
         '
@@ -390,15 +481,6 @@ Partial Class Employees
         Me.CityTextBox.Size = New System.Drawing.Size(200, 20)
         Me.CityTextBox.TabIndex = 18
         '
-        'RegionLabel
-        '
-        RegionLabel.AutoSize = True
-        RegionLabel.Location = New System.Drawing.Point(12, 274)
-        RegionLabel.Name = "RegionLabel"
-        RegionLabel.Size = New System.Drawing.Size(44, 13)
-        RegionLabel.TabIndex = 19
-        RegionLabel.Text = "Region:"
-        '
         'RegionTextBox
         '
         Me.RegionTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Region", True))
@@ -406,15 +488,6 @@ Partial Class Employees
         Me.RegionTextBox.Name = "RegionTextBox"
         Me.RegionTextBox.Size = New System.Drawing.Size(200, 20)
         Me.RegionTextBox.TabIndex = 20
-        '
-        'PostalCodeLabel
-        '
-        PostalCodeLabel.AutoSize = True
-        PostalCodeLabel.Location = New System.Drawing.Point(12, 300)
-        PostalCodeLabel.Name = "PostalCodeLabel"
-        PostalCodeLabel.Size = New System.Drawing.Size(67, 13)
-        PostalCodeLabel.TabIndex = 21
-        PostalCodeLabel.Text = "Postal Code:"
         '
         'PostalCodeTextBox
         '
@@ -424,15 +497,6 @@ Partial Class Employees
         Me.PostalCodeTextBox.Size = New System.Drawing.Size(200, 20)
         Me.PostalCodeTextBox.TabIndex = 22
         '
-        'CountryLabel
-        '
-        CountryLabel.AutoSize = True
-        CountryLabel.Location = New System.Drawing.Point(12, 326)
-        CountryLabel.Name = "CountryLabel"
-        CountryLabel.Size = New System.Drawing.Size(46, 13)
-        CountryLabel.TabIndex = 23
-        CountryLabel.Text = "Country:"
-        '
         'CountryTextBox
         '
         Me.CountryTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Country", True))
@@ -440,15 +504,6 @@ Partial Class Employees
         Me.CountryTextBox.Name = "CountryTextBox"
         Me.CountryTextBox.Size = New System.Drawing.Size(200, 20)
         Me.CountryTextBox.TabIndex = 24
-        '
-        'HomePhoneLabel
-        '
-        HomePhoneLabel.AutoSize = True
-        HomePhoneLabel.Location = New System.Drawing.Point(12, 352)
-        HomePhoneLabel.Name = "HomePhoneLabel"
-        HomePhoneLabel.Size = New System.Drawing.Size(72, 13)
-        HomePhoneLabel.TabIndex = 25
-        HomePhoneLabel.Text = "Home Phone:"
         '
         'HomePhoneTextBox
         '
@@ -458,15 +513,6 @@ Partial Class Employees
         Me.HomePhoneTextBox.Size = New System.Drawing.Size(200, 20)
         Me.HomePhoneTextBox.TabIndex = 26
         '
-        'ExtensionLabel
-        '
-        ExtensionLabel.AutoSize = True
-        ExtensionLabel.Location = New System.Drawing.Point(12, 378)
-        ExtensionLabel.Name = "ExtensionLabel"
-        ExtensionLabel.Size = New System.Drawing.Size(56, 13)
-        ExtensionLabel.TabIndex = 27
-        ExtensionLabel.Text = "Extension:"
-        '
         'ExtensionTextBox
         '
         Me.ExtensionTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Extension", True))
@@ -474,15 +520,6 @@ Partial Class Employees
         Me.ExtensionTextBox.Name = "ExtensionTextBox"
         Me.ExtensionTextBox.Size = New System.Drawing.Size(200, 20)
         Me.ExtensionTextBox.TabIndex = 28
-        '
-        'PhotoLabel
-        '
-        PhotoLabel.AutoSize = True
-        PhotoLabel.Location = New System.Drawing.Point(12, 404)
-        PhotoLabel.Name = "PhotoLabel"
-        PhotoLabel.Size = New System.Drawing.Size(38, 13)
-        PhotoLabel.TabIndex = 29
-        PhotoLabel.Text = "Photo:"
         '
         'PhotoTextBox
         '
@@ -492,15 +529,6 @@ Partial Class Employees
         Me.PhotoTextBox.Size = New System.Drawing.Size(200, 20)
         Me.PhotoTextBox.TabIndex = 30
         '
-        'NotesLabel
-        '
-        NotesLabel.AutoSize = True
-        NotesLabel.Location = New System.Drawing.Point(12, 430)
-        NotesLabel.Name = "NotesLabel"
-        NotesLabel.Size = New System.Drawing.Size(38, 13)
-        NotesLabel.TabIndex = 31
-        NotesLabel.Text = "Notes:"
-        '
         'NotesTextBox
         '
         Me.NotesTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Notes", True))
@@ -508,15 +536,6 @@ Partial Class Employees
         Me.NotesTextBox.Name = "NotesTextBox"
         Me.NotesTextBox.Size = New System.Drawing.Size(200, 20)
         Me.NotesTextBox.TabIndex = 32
-        '
-        'ReportsToLabel
-        '
-        ReportsToLabel.AutoSize = True
-        ReportsToLabel.Location = New System.Drawing.Point(12, 456)
-        ReportsToLabel.Name = "ReportsToLabel"
-        ReportsToLabel.Size = New System.Drawing.Size(63, 13)
-        ReportsToLabel.TabIndex = 33
-        ReportsToLabel.Text = "Reports To:"
         '
         'ReportsToTextBox
         '
@@ -526,11 +545,116 @@ Partial Class Employees
         Me.ReportsToTextBox.Size = New System.Drawing.Size(200, 20)
         Me.ReportsToTextBox.TabIndex = 34
         '
+        'OrdersBindingSource
+        '
+        Me.OrdersBindingSource.DataMember = "EmployeesOrders"
+        Me.OrdersBindingSource.DataSource = Me.EmployeesBindingSource
+        '
+        'OrdersTableAdapter
+        '
+        Me.OrdersTableAdapter.ClearBeforeFill = True
+        '
+        'OrdersDataGridView
+        '
+        Me.OrdersDataGridView.AutoGenerateColumns = False
+        Me.OrdersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.OrdersDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.OrderIDDataGridViewTextBoxColumn, Me.CustomerIDDataGridViewTextBoxColumn, Me.EmployeeIDDataGridViewTextBoxColumn, Me.OrderDateDataGridViewTextBoxColumn, Me.RequiredDateDataGridViewTextBoxColumn, Me.ShippedDateDataGridViewTextBoxColumn, Me.ShipViaDataGridViewTextBoxColumn, Me.FreightDataGridViewTextBoxColumn, Me.ShipNameDataGridViewTextBoxColumn, Me.ShipAddressDataGridViewTextBoxColumn, Me.ShipCityDataGridViewTextBoxColumn, Me.ShipRegionDataGridViewTextBoxColumn, Me.ShipPostalCodeDataGridViewTextBoxColumn, Me.ShipCountryDataGridViewTextBoxColumn})
+        Me.OrdersDataGridView.DataSource = Me.OrdersBindingSource
+        Me.OrdersDataGridView.Location = New System.Drawing.Point(408, 130)
+        Me.OrdersDataGridView.Name = "OrdersDataGridView"
+        Me.OrdersDataGridView.Size = New System.Drawing.Size(300, 220)
+        Me.OrdersDataGridView.TabIndex = 35
+        '
+        'OrderIDDataGridViewTextBoxColumn
+        '
+        Me.OrderIDDataGridViewTextBoxColumn.DataPropertyName = "OrderID"
+        Me.OrderIDDataGridViewTextBoxColumn.HeaderText = "OrderID"
+        Me.OrderIDDataGridViewTextBoxColumn.Name = "OrderIDDataGridViewTextBoxColumn"
+        '
+        'CustomerIDDataGridViewTextBoxColumn
+        '
+        Me.CustomerIDDataGridViewTextBoxColumn.DataPropertyName = "CustomerID"
+        Me.CustomerIDDataGridViewTextBoxColumn.HeaderText = "CustomerID"
+        Me.CustomerIDDataGridViewTextBoxColumn.Name = "CustomerIDDataGridViewTextBoxColumn"
+        '
+        'EmployeeIDDataGridViewTextBoxColumn
+        '
+        Me.EmployeeIDDataGridViewTextBoxColumn.DataPropertyName = "EmployeeID"
+        Me.EmployeeIDDataGridViewTextBoxColumn.HeaderText = "EmployeeID"
+        Me.EmployeeIDDataGridViewTextBoxColumn.Name = "EmployeeIDDataGridViewTextBoxColumn"
+        '
+        'OrderDateDataGridViewTextBoxColumn
+        '
+        Me.OrderDateDataGridViewTextBoxColumn.DataPropertyName = "OrderDate"
+        Me.OrderDateDataGridViewTextBoxColumn.HeaderText = "OrderDate"
+        Me.OrderDateDataGridViewTextBoxColumn.Name = "OrderDateDataGridViewTextBoxColumn"
+        '
+        'RequiredDateDataGridViewTextBoxColumn
+        '
+        Me.RequiredDateDataGridViewTextBoxColumn.DataPropertyName = "RequiredDate"
+        Me.RequiredDateDataGridViewTextBoxColumn.HeaderText = "RequiredDate"
+        Me.RequiredDateDataGridViewTextBoxColumn.Name = "RequiredDateDataGridViewTextBoxColumn"
+        '
+        'ShippedDateDataGridViewTextBoxColumn
+        '
+        Me.ShippedDateDataGridViewTextBoxColumn.DataPropertyName = "ShippedDate"
+        Me.ShippedDateDataGridViewTextBoxColumn.HeaderText = "ShippedDate"
+        Me.ShippedDateDataGridViewTextBoxColumn.Name = "ShippedDateDataGridViewTextBoxColumn"
+        '
+        'ShipViaDataGridViewTextBoxColumn
+        '
+        Me.ShipViaDataGridViewTextBoxColumn.DataPropertyName = "ShipVia"
+        Me.ShipViaDataGridViewTextBoxColumn.HeaderText = "ShipVia"
+        Me.ShipViaDataGridViewTextBoxColumn.Name = "ShipViaDataGridViewTextBoxColumn"
+        '
+        'FreightDataGridViewTextBoxColumn
+        '
+        Me.FreightDataGridViewTextBoxColumn.DataPropertyName = "Freight"
+        Me.FreightDataGridViewTextBoxColumn.HeaderText = "Freight"
+        Me.FreightDataGridViewTextBoxColumn.Name = "FreightDataGridViewTextBoxColumn"
+        '
+        'ShipNameDataGridViewTextBoxColumn
+        '
+        Me.ShipNameDataGridViewTextBoxColumn.DataPropertyName = "ShipName"
+        Me.ShipNameDataGridViewTextBoxColumn.HeaderText = "ShipName"
+        Me.ShipNameDataGridViewTextBoxColumn.Name = "ShipNameDataGridViewTextBoxColumn"
+        '
+        'ShipAddressDataGridViewTextBoxColumn
+        '
+        Me.ShipAddressDataGridViewTextBoxColumn.DataPropertyName = "ShipAddress"
+        Me.ShipAddressDataGridViewTextBoxColumn.HeaderText = "ShipAddress"
+        Me.ShipAddressDataGridViewTextBoxColumn.Name = "ShipAddressDataGridViewTextBoxColumn"
+        '
+        'ShipCityDataGridViewTextBoxColumn
+        '
+        Me.ShipCityDataGridViewTextBoxColumn.DataPropertyName = "ShipCity"
+        Me.ShipCityDataGridViewTextBoxColumn.HeaderText = "ShipCity"
+        Me.ShipCityDataGridViewTextBoxColumn.Name = "ShipCityDataGridViewTextBoxColumn"
+        '
+        'ShipRegionDataGridViewTextBoxColumn
+        '
+        Me.ShipRegionDataGridViewTextBoxColumn.DataPropertyName = "ShipRegion"
+        Me.ShipRegionDataGridViewTextBoxColumn.HeaderText = "ShipRegion"
+        Me.ShipRegionDataGridViewTextBoxColumn.Name = "ShipRegionDataGridViewTextBoxColumn"
+        '
+        'ShipPostalCodeDataGridViewTextBoxColumn
+        '
+        Me.ShipPostalCodeDataGridViewTextBoxColumn.DataPropertyName = "ShipPostalCode"
+        Me.ShipPostalCodeDataGridViewTextBoxColumn.HeaderText = "ShipPostalCode"
+        Me.ShipPostalCodeDataGridViewTextBoxColumn.Name = "ShipPostalCodeDataGridViewTextBoxColumn"
+        '
+        'ShipCountryDataGridViewTextBoxColumn
+        '
+        Me.ShipCountryDataGridViewTextBoxColumn.DataPropertyName = "ShipCountry"
+        Me.ShipCountryDataGridViewTextBoxColumn.HeaderText = "ShipCountry"
+        Me.ShipCountryDataGridViewTextBoxColumn.Name = "ShipCountryDataGridViewTextBoxColumn"
+        '
         'Employees
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(349, 504)
+        Me.ClientSize = New System.Drawing.Size(728, 504)
+        Me.Controls.Add(Me.OrdersDataGridView)
         Me.Controls.Add(EmployeeIDLabel)
         Me.Controls.Add(Me.EmployeeIDLabel1)
         Me.Controls.Add(LastNameLabel)
@@ -573,6 +697,8 @@ Partial Class Employees
         CType(Me.EmployeesBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.EmployeesBindingNavigator.ResumeLayout(False)
         Me.EmployeesBindingNavigator.PerformLayout()
+        CType(Me.OrdersBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.OrdersDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -611,4 +737,21 @@ Partial Class Employees
     Friend WithEvents PhotoTextBox As System.Windows.Forms.TextBox
     Friend WithEvents NotesTextBox As System.Windows.Forms.TextBox
     Friend WithEvents ReportsToTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents OrdersTableAdapter As DataForms.NorthwindDataSetTableAdapters.OrdersTableAdapter
+    Friend WithEvents OrdersBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents OrdersDataGridView As System.Windows.Forms.DataGridView
+    Friend WithEvents OrderIDDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents CustomerIDDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents EmployeeIDDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents OrderDateDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents RequiredDateDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ShippedDateDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ShipViaDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents FreightDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ShipNameDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ShipAddressDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ShipCityDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ShipRegionDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ShipPostalCodeDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ShipCountryDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class

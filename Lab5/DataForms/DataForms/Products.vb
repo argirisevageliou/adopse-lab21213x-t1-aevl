@@ -8,6 +8,8 @@
     End Sub
 
     Private Sub Products_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'NorthwindDataSet.Suppliers' table. You can move, or remove it, as needed.
+        Me.SuppliersTableAdapter.Fill(Me.NorthwindDataSet.Suppliers)
         'TODO: This line of code loads data into the 'NorthwindDataSet.Products' table. You can move, or remove it, as needed.
         Me.ProductsTableAdapter.Fill(Me.NorthwindDataSet.Products)
 

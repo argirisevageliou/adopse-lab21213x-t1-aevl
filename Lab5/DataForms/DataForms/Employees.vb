@@ -8,6 +8,8 @@
     End Sub
 
     Private Sub Employees_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'NorthwindDataSet.Orders' table. You can move, or remove it, as needed.
+        Me.OrdersTableAdapter.Fill(Me.NorthwindDataSet.Orders)
         'TODO: This line of code loads data into the 'NorthwindDataSet.Employees' table. You can move, or remove it, as needed.
         Me.EmployeesTableAdapter.Fill(Me.NorthwindDataSet.Employees)
 
