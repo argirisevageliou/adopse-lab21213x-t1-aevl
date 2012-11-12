@@ -34,7 +34,10 @@ Partial Class Products
         Dim ReorderLevelLabel As System.Windows.Forms.Label
         Dim DiscontinuedLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Products))
+<<<<<<< Updated upstream
+=======
         Dim SupplierIDLabel1 As System.Windows.Forms.Label
+>>>>>>> Stashed changes
         Me.NorthwindDataSet = New DataForms.NorthwindDataSet
         Me.ProductsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ProductsTableAdapter = New DataForms.NorthwindDataSetTableAdapters.ProductsTableAdapter
@@ -62,7 +65,11 @@ Partial Class Products
         Me.UnitsOnOrderTextBox = New System.Windows.Forms.TextBox
         Me.ReorderLevelTextBox = New System.Windows.Forms.TextBox
         Me.DiscontinuedCheckBox = New System.Windows.Forms.CheckBox
+<<<<<<< Updated upstream
+        Me.Label1 = New System.Windows.Forms.Label
+=======
         Me.SupplierIDComboBox = New System.Windows.Forms.ComboBox
+>>>>>>> Stashed changes
         Me.SuppliersBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.SuppliersTableAdapter = New DataForms.NorthwindDataSetTableAdapters.SuppliersTableAdapter
         ProductIDLabel = New System.Windows.Forms.Label
@@ -394,6 +401,16 @@ Partial Class Products
         Me.DiscontinuedCheckBox.Text = "CheckBox1"
         Me.DiscontinuedCheckBox.UseVisualStyleBackColor = True
         '
+<<<<<<< Updated upstream
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(15, 345)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(59, 13)
+        Me.Label1.TabIndex = 22
+        Me.Label1.Text = "SuppliersId"
+=======
         'SupplierIDLabel1
         '
         SupplierIDLabel1.AutoSize = True
@@ -414,6 +431,7 @@ Partial Class Products
         Me.SupplierIDComboBox.Size = New System.Drawing.Size(121, 21)
         Me.SupplierIDComboBox.TabIndex = 22
         Me.SupplierIDComboBox.ValueMember = "SupplierID"
+>>>>>>> Stashed changes
         '
         'SuppliersBindingSource
         '
@@ -428,9 +446,14 @@ Partial Class Products
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+<<<<<<< Updated upstream
+        Me.ClientSize = New System.Drawing.Size(284, 370)
+        Me.Controls.Add(Me.Label1)
+=======
         Me.ClientSize = New System.Drawing.Size(650, 331)
         Me.Controls.Add(SupplierIDLabel1)
         Me.Controls.Add(Me.SupplierIDComboBox)
+>>>>>>> Stashed changes
         Me.Controls.Add(ProductIDLabel)
         Me.Controls.Add(Me.ProductIDLabel1)
         Me.Controls.Add(ProductNameLabel)
@@ -491,7 +514,11 @@ Partial Class Products
     Friend WithEvents UnitsOnOrderTextBox As System.Windows.Forms.TextBox
     Friend WithEvents ReorderLevelTextBox As System.Windows.Forms.TextBox
     Friend WithEvents DiscontinuedCheckBox As System.Windows.Forms.CheckBox
+<<<<<<< Updated upstream
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+=======
     Friend WithEvents SupplierIDComboBox As System.Windows.Forms.ComboBox
+>>>>>>> Stashed changes
     Friend WithEvents SuppliersTableAdapter As DataForms.NorthwindDataSetTableAdapters.SuppliersTableAdapter
     Friend WithEvents SuppliersBindingSource As System.Windows.Forms.BindingSource
 End Class
